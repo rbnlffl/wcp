@@ -16,10 +16,10 @@ module.exports = {
             ],
             exclude: /node_modules/
         }, {
-            test: /\.html/,
+            test: /\.html$/,
             use: 'html-loader'
         }, {
-            test: /\.css/,
+            test: /\.css$/,
             use: 'css-loader'
         }]
     },
