@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/js/bundle.ts',
@@ -12,7 +13,8 @@ module.exports = {
             test: /\.ts$/,
             use: [
                 'babel-loader',
-                'ts-loader'
+                'ts-loader',
+                'eslint-loader'
             ],
             exclude: /node_modules/
         }, {
@@ -23,11 +25,22 @@ module.exports = {
             use: 'css-loader'
         }]
     },
+    plugins: [
+        new webpack.ProgressPlugin(),
+        new CopyPlugin([
+            { from: 'src/index.html', to: '.' }
+        ]),
+        new webpack.HotModuleReplacementPlugin()
+    ],
     resolve: {
         extensions: [
             '.ts',
             '.js'
-        ],
+        ]
     },
-    watch: true
+    devServer: {
+        contentBase: 'dist',
+        compress: true,
+        hot: true
+    }
 };
