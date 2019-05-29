@@ -21,8 +21,12 @@ module.exports = {
             test: /\.html$/,
             use: 'html-loader'
         }, {
-            test: /\.css$/,
-            use: 'css-loader'
+            test: /\.scss$/,
+            use: [
+                'css-loader',
+                'postcss-loader',
+                'sass-loader'
+            ]
         }]
     },
     plugins: [

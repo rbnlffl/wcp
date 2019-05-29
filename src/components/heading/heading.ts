@@ -1,5 +1,5 @@
 import template from './heading.html';
-import style from './heading.css';
+import style from './heading.scss';
 
 export class Typeahead extends HTMLElement {
     private root: ShadowRoot;
