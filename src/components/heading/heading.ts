@@ -3,7 +3,7 @@ import style from './heading.scss';
 
 export class Typeahead extends HTMLElement {
     private root: ShadowRoot;
-    private text: string = '';
+    private text: string;
 
     public constructor() {
         super();

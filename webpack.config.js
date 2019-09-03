@@ -32,7 +32,8 @@ module.exports = {
     plugins: [
         new webpack.ProgressPlugin(),
         new CopyPlugin([
-            { from: 'src/index.html', to: '.' }
+            { from: 'src/index.html', to: '.' },
+            { from: 'cname', to: '.' }
         ]),
         new webpack.HotModuleReplacementPlugin()
     ],
