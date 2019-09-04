@@ -28,7 +28,9 @@
         "webpack-dev-server": "^3.8.0"
     },
     "scripts": {
-        "start": "rm -rf dist; webpack-dev-server --open",
-        "build": "webpack"
+        "start": "webpack-dev-server --open",
+        "build": "rm -rf dist && webpack",
+        "prepsurge": "rm -rf surge && mkdir surge && cp dist/index.html dist/main.* cname surge",
+        "dist": "yarn build && yarn prepsurge"
     }
 }
